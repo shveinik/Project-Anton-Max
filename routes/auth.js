@@ -25,7 +25,7 @@ router.get("/main", ensureLoggedIn(), (req, res) => {
 
 /* POST User Info to DB */
 router.post('/signup', ensureLoggedOut(), passport.authenticate('signup', {
-  successRedirect : '/login',
+  successRedirect : '/main',
   failureRedirect : '/signup'
 }));
 
@@ -40,7 +40,10 @@ router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
     req.logout();
     res.redirect('/');
 });
-
+//*Offer page
+router.get("/offer",(req, res) => {
+  res.render("offer", { user: req.user });
+});
 
 
 

@@ -4,7 +4,7 @@ var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
-var flash   = require('connect-flash');
+var flash        = require('connect-flash');
 
 /* Added Requirements */
 const session        = require("express-session");
@@ -18,7 +18,6 @@ const mongoose       = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/Project2");
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var auth = require('./routes/auth');
 
 var app = express();
@@ -47,12 +46,13 @@ passport.deserializeUser((id, cb) => {
 // Signing Up
 passport.use('signup', new LocalStrategy(
   { passReqToCallback: true },
-  (req, name, password, next) => {
+  (req, username, password, next) => {
+    console.log('hello');
+
     // To avoid race conditions
     process.nextTick(() => {
-      console.log('hello');
         User.findOne({
-            'name': name
+            'username': username
         }, (err, user) => {
             if (err){ return next(err); }
 
@@ -60,10 +60,10 @@ passport.use('signup', new LocalStrategy(
                 return next(null, false);
             } else {
                 // Destructure the body
-                const { name, email, password } = req.body;
+                const { username, email, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                 const newUser = new User({
-                  name,
+                  username,
                   email,
                   password: hashPass
                 });
@@ -78,8 +78,8 @@ passport.use('signup', new LocalStrategy(
 }));
 
 //Login in
-passport.use('login', new LocalStrategy((name, password, next) => {
-  User.findOne({ name }, (err, user) => {
+passport.use('login', new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
     if (err) {
       return next(err);
     }
@@ -113,7 +113,7 @@ app.set('layout', 'layouts/main-layout');
 
 app.use('/', index);
 app.use('/', auth);
-app.use('/users', users);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
