@@ -25,23 +25,21 @@ router.get("/main", ensureLoggedIn(), (req, res) => {
 
 /* POST User Info to DB */
 router.post('/signup', ensureLoggedOut(), passport.authenticate('signup', {
-  successRedirect : '/login',
+  successRedirect : '/main',
   failureRedirect : '/signup'
 }));
 
 /* POST Login to server to redirect User to homepage */
 router.post('/login', ensureLoggedOut(), passport.authenticate('login', {
   successRedirect : '/main',
-  failureRedirect : '/login'
+  failureRedirect : '/'
 }));
 
 /* GET logout*/
 router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
     req.logout();
+    req.session.destroy();
     res.redirect('/');
 });
-
-
-
 
 module.exports = router;

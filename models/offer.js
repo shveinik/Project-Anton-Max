@@ -10,10 +10,6 @@ const OfferSchema = new Schema({
         default : ""
       },
         description: String
-
-
-
-
 });
 
 const Offer = mongoose.model("Offer", OfferSchema);

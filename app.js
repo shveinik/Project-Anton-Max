@@ -18,7 +18,6 @@ const mongoose       = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/Project2");
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var auth = require('./routes/auth');
 
 var app = express();
@@ -47,23 +46,22 @@ passport.deserializeUser((id, cb) => {
 // Signing Up
 passport.use('signup', new LocalStrategy(
   { passReqToCallback: true },
-  (req, name, password, next) => {
-    // To avoid race conditions
-    process.nextTick(() => {
-      console.log('hello');
-        User.findOne({
-            'name': name
+  (req, username, password, next) => {
+            User.findOne({
+            'username': username
         }, (err, user) => {
             if (err){ return next(err); }
 
             if (user) {
+              console.log('lol');
                 return next(null, false);
             } else {
+              console.log("Hello!")
                 // Destructure the body
-                const { name, email, password } = req.body;
+                const { username, email, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                 const newUser = new User({
-                  name,
+                  username,
                   email,
                   password: hashPass
                 });
@@ -74,12 +72,11 @@ passport.use('signup', new LocalStrategy(
                 });
             }
         });
-    });
 }));
 
 //Login in
-passport.use('login', new LocalStrategy((name, password, next) => {
-  User.findOne({ name }, (err, user) => {
+passport.use('login', new LocalStrategy((username, password, next) => {
+  User.findOne({ username }, (err, user) => {
     if (err) {
       return next(err);
     }
@@ -113,7 +110,6 @@ app.set('layout', 'layouts/main-layout');
 
 app.use('/', index);
 app.use('/', auth);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
