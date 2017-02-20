@@ -1,0 +1,33 @@
+<form action="/offer" method="post">
+  <div class="form-group">
+    <label for="offerName">Offer name</label>
+    <input type="text" name="offer" class="form-control" placeholder="Offer name">
+  </div>
+<br>  
+  <div class="form-group">
+    <label for="Decsription">Decsription</label>
+    <input type="text" name="Decsription" class="form-control" placeholder="Decsription" size="40">
+  </div>
+
+  <% if (typeof(message) != "undefined") { %>
+    <div class="error-message"><%= message %></div>
+  <% } %>
+
+  <br>
+
+  <input type="radio" name="" value="">Low Temperature Fermentation Chamber<br>
+  <input type="radio" name="" value="">Middle Temperature Fermentation Chamber<br>
+  <input type="radio" name="" value="">Grain Mill<br>
+  <input type="radio" name="" value="">Fruit Crusher<br>
+  <input type="radio" name="" value="">Fruit Press<br>
+  <input type="radio" name="" value="">Full brewing cycle<br>
+
+<br>
+  <button type="submit">Ok</button>
+
+</form>
+<br>
+
+
+
+<a href ="/main">Back</a>
