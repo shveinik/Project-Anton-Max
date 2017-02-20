@@ -1,27 +1,37 @@
 <form action="/offer" method="post">
   <div class="form-group">
-    <label for="offerName">Offer name</label>
-    <input type="text" name="offer" class="form-control" placeholder="Offer name">
+    <label for="name">Offer name</label>
+    <input type="text" name="name" class="form-control" placeholder="Offer name">
   </div>
-<br>  
+<br>
   <div class="form-group">
-    <label for="Decsription">Decsription</label>
-    <input type="text" name="Decsription" class="form-control" placeholder="Decsription" size="40">
+    <label for="description">Description</label>
+    <input type="text" name="description" class="form-control" placeholder="Description" size="40">
   </div>
 
   <% if (typeof(message) != "undefined") { %>
     <div class="error-message"><%= message %></div>
   <% } %>
 
-  <br>
+  <!-- <br>
 
-  <input type="radio" name="" value="">Low Temperature Fermentation Chamber<br>
-  <input type="radio" name="" value="">Middle Temperature Fermentation Chamber<br>
-  <input type="radio" name="" value="">Grain Mill<br>
-  <input type="radio" name="" value="">Fruit Crusher<br>
-  <input type="radio" name="" value="">Fruit Press<br>
-  <input type="radio" name="" value="">Full brewing cycle<br>
+  <input type="checkbox" name="offer" value="ColdFermChamb">Low Temperature Fermentation Chamber<br>
+  <input type="checkbox" name="offer" value="HotFermChamb">Middle Temperature Fermentation Chamber<br>
+  <input type="checkbox" name="offer" value="Mill">Grain Mill<br>
+  <input type="checkbox" name="offer" value="Crusher">Fruit Crusher<br>
+  <input type="checkbox" name="offer" value="Press">Fruit Press<br>
+  <input type="checkbox" name="offer" value="Full">Full brewing cycle<br>
 
+<br> -->
+<br>
+<select multiple name="offer">
+<option value="ColdFermChamb">Low Temperature Fermentation Chamber<br>
+<option value="HotFermChamb">Middle Temperature Fermentation Chamber<br>
+<option value="Mill">Grain Mill<br>
+<option value="Crusher">Fruit Crusher<br>
+<option value="Press">Fruit Press<br>
+<option value="Full">Full brewing cycle<br>
+</select>
 <br>
   <button type="submit">Ok</button>
 

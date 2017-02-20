@@ -5,7 +5,7 @@ const OfferSchema = new Schema({
 
       name: String,
       offer: {
-        type: String,
+        type: [String],
         enum: ["ColdFermChamb","HotFermChamb","Mill","Full","Crusher","Press"],
         default : ""
       },

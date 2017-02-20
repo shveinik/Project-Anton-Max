@@ -42,10 +42,4 @@ router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
     res.redirect('/');
 });
 
-//*Offer page
-router.get("/offer",(req, res) => {
-  res.render("offer", { user: req.user });
-});
-
-
 module.exports = router;

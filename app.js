@@ -13,12 +13,14 @@ const passport       = require("passport");
 const LocalStrategy  = require("passport-local").Strategy;
 const expressLayouts = require('express-ejs-layouts');
 const User           = require("./models/user");
+const Offer          = require("./models/offer")
 const mongoose       = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/Project2");
 
 var index = require('./routes/index');
 var auth = require('./routes/auth');
+var offer = require('./routes/offers');
 
 var app = express();
 
@@ -110,6 +112,7 @@ app.set('layout', 'layouts/main-layout');
 
 app.use('/', index);
 app.use('/', auth);
+app.use('/', offer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
