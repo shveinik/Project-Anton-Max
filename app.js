@@ -50,7 +50,7 @@ passport.use('signup', new LocalStrategy(
     console.log('hello');
 
     // To avoid race conditions
-    process.nextTick(() => {
+
         User.findOne({
             'username': username
         }, (err, user) => {
@@ -74,7 +74,7 @@ passport.use('signup', new LocalStrategy(
                 });
             }
         });
-    });
+
 }));
 
 //Login in
