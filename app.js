@@ -1,16 +1,98 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express      = require('express');
+var path         = require('path');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser   = require('body-parser');
+var flash   = require('connect-flash');
+
+/* Added Requirements */
+const session        = require("express-session");
+const bcrypt         = require("bcrypt");
+const passport       = require("passport");
+const LocalStrategy  = require("passport-local").Strategy;
 const expressLayouts = require('express-ejs-layouts');
+const User           = require("./models/user");
+const mongoose       = require("mongoose");
+
+mongoose.connect("mongodb://localhost:27017/Project2");
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
 
 var app = express();
+
+// Configuration and use of auth middlewares
+app.use(session({
+  secret: 'project2',
+  resave: false,
+  saveUninitialized: true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport confiugrations
+passport.serializeUser((user, cb) => {
+  cb(null, user.id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findOne({ "_id": id }, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+// Signing Up
+passport.use('signup', new LocalStrategy(
+  { passReqToCallback: true },
+  (req, name, password, next) => {
+    // To avoid race conditions
+    process.nextTick(() => {
+      console.log('hello');
+        User.findOne({
+            'name': name
+        }, (err, user) => {
+            if (err){ return next(err); }
+
+            if (user) {
+                return next(null, false);
+            } else {
+                // Destructure the body
+                const { name, email, password } = req.body;
+                const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+                const newUser = new User({
+                  name,
+                  email,
+                  password: hashPass
+                });
+
+                newUser.save((err) => {
+                    if (err){ next(err); }
+                    return next(null, newUser);
+                });
+            }
+        });
+    });
+}));
+
+//Login in
+passport.use('login', new LocalStrategy((name, password, next) => {
+  User.findOne({ name }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
