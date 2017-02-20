@@ -13,12 +13,14 @@ const passport       = require("passport");
 const LocalStrategy  = require("passport-local").Strategy;
 const expressLayouts = require('express-ejs-layouts');
 const User           = require("./models/user");
+const Offer          = require("./models/offer")
 const mongoose       = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/Project2");
 
 var index = require('./routes/index');
 var auth = require('./routes/auth');
+var offer = require('./routes/offers');
 
 var app = express();
 
@@ -47,18 +49,19 @@ passport.deserializeUser((id, cb) => {
 passport.use('signup', new LocalStrategy(
   { passReqToCallback: true },
   (req, username, password, next) => {
-    console.log('hello');
 
     // To avoid race conditions
+            User.findOne({
 
-        User.findOne({
             'username': username
         }, (err, user) => {
             if (err){ return next(err); }
 
             if (user) {
+              console.log('lol');
                 return next(null, false);
             } else {
+              console.log("Hello!");
                 // Destructure the body
                 const { username, email, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -113,7 +116,7 @@ app.set('layout', 'layouts/main-layout');
 
 app.use('/', index);
 app.use('/', auth);
-// app.use('/users', users);
+app.use('/', offer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

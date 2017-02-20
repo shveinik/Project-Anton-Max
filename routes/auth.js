@@ -32,20 +32,15 @@ router.post('/signup', ensureLoggedOut(), passport.authenticate('signup', {
 /* POST Login to server to redirect User to homepage */
 router.post('/login', ensureLoggedOut(), passport.authenticate('login', {
   successRedirect : '/main',
-  failureRedirect : '/login'
+  failureRedirect : '/'
 }));
 
 /* GET logout*/
 router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
     req.logout();
+    req.session.destroy();
     res.redirect('/');
 });
-//*Offer page
-  
-router.get("/offer",(req, res) => {
-  res.render("offer", { user: req.user });
-});
-
 
 
 module.exports = router;
