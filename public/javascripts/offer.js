@@ -18,8 +18,6 @@ $.ajax({
      map: map
    });
 
-   // Get the full place details when the user selects a place from the
-   // list of suggestions.
    google.maps.event.addListener(autocomplete, 'place_changed', function() {
      infowindow.close();
      var place = autocomplete.getPlace();

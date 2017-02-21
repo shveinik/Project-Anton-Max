@@ -48,4 +48,13 @@ router.post('/offer', (req, res, next) => {
   });
 });
 
+router.get('/all/offers',(req, res, next) => {
+  Offer.find((error, offers) => {
+    if (error) { next(error);
+    } else {
+      res.json(offers);
+    }
+  });
+});
+
 module.exports = router;

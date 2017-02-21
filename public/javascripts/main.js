@@ -1,36 +1,31 @@
-$(document).ready(function(){
+$.ajax({
+  url:     'http://localhost:3000/all/offers',
+ type:    'GET',
+ success: function (response) {
+    myOffers = response;
+   // Create and Initialize Map
+   const map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 15,
+     center: {lat: 40.417080, lng: -3.703612}
+   });
+  //geocoder constructor
+  var geocoder = new google.maps.Geocoder();
 
-///-Map settings
-  var ironhackBCN = { lat: 41.3977381,  lng: 2.190471916 };
-
-  const map = new google.maps.Map(document.getElementById('map'), {
-  zoom: 14,
-  center: ironhackBCN
-  });
-
-  if (navigator.geolocation) {
-   navigator.geolocation.getCurrentPosition(function (position) {
-     const user_location = {
-       lat: position.coords.latitude,
-       lng: position.coords.longitude
-     };
-
-     // Center map with user location
-  map.setCenter(user_location);
-
-     // Add a marker for your user location
-  var IronHackBCNMarker = new google.maps.Marker({
-       position: {
-         lat: user_location.lat,
-         lng: user_location.lng
-       },
-       map: map,
-       title: "You are here"
+    myOffers.forEach(function(offer){
+     let title = offer.name;
+     let address = offer.location;
+     geocoder.geocode( { 'address': address}, function(results, status) {
+       if (status == google.maps.GeocoderStatus.OK) {
+         var marker = new google.maps.Marker({
+             title: title,
+             map: map,
+             position: results[0].geometry.location,
+         });
+       } else {
+         alert('Geocode was not successful for the following reason: ' + status);
+       }
      });
    });
- }
-///---////
-
-
-
+ },
+ error: function (err) {console.log(err);}
 });
