@@ -13,58 +13,39 @@ router.get("/offer", ensureLoggedIn(), (req, res) => {
 /* POST offer page */
 router.post('/offer', (req, res, next) => {
 
-      const gearInfo = {
-        ColdFermChamb : req.body.ColdFermChamb,
-        HotFermChamb : req.body.HotFermChamb,
-        Mill : req.body.Mill,
-        Crusher : req.body.Crusher,
-        Press : req.body.Press,
-        Full : req.body.Full,
-      };
-      const newGear = new Gear(gearInfo);
-      newGear.save((err) => {
-        if (err) {return next(err);}
+  const offerInfo = {
+      _supplier    : req.user._id,
+      name         : req.body.name,
+      description  : req.body.description,
+      location     : req.body.location
+  };
+  const newOffer = new Offer(offerInfo);
+
+  const gearInfo = {
+    _offer : newOffer._id,
+    ColdFermChamb : req.body.ColdFermChamb,
+    HotFermChamb : req.body.HotFermChamb,
+    Mill : req.body.Mill,
+    Crusher : req.body.Crusher,
+    Press : req.body.Press,
+    Full : req.body.Full,
+  };
+  const newGear = new Gear(gearInfo);
+
+  newGear.save((err)=>{
+    if (err) { return next(err);}
+    newOffer.offer.push(newGear);
+
+    newOffer.save((err)=>{
+      if (err) { return next(err);}
+
+      req.user.offers.push(newOffer);
+      req.user.save((err)=>{
+        if (err) { return next(err); }
+        return res.redirect('/main');
       });
-
-      const offerInfo = {
-          _supplier    : req.user._id,
-          name         : req.body.name,
-          offer        : newGear._id,
-          description  : req.body.description,
-      };
-
-      const newOffer = new Offer(offerInfo);
-      Gear.findOneAndUpdate({_id: newGear._id}, { _offer: newOffer._id });
-
-      newOffer.save((err)=>{
-        if (err) { return next(err);}
-
-        newOffer.offer.push(newGear);
-        req.user.offers.push(newOffer);
-        req.user.save((err)=>{
-          if (err) {console.log(err);}
-          return res.redirect('/main');
-        });
-      });
+    });
+  });
 });
-// /* POST offer page */
-// router.post('/offer', (req, res, next) => {
-//   const gearInfo = {
-//     ColdFermChamb : req.body.ColdFermChamb,
-//     HotFermChamb : req.body.HotFermChamb,
-//     Mill : req.body.Mill,
-//     Crusher : req.body.Crusher,
-//     Press : req.body.Press,
-//     Full : req.body.Full,
-//   };
-//   const newGear = new Gear(gearInfo);
-//
-//   newGear.save((err) => {
-//     if (err) {return next(err);}
-//   });
-//   console.log(gearInfo);
-//   return res.redirect('/offer');
-// });
-
 
 module.exports = router;

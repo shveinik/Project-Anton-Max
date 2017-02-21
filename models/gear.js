@@ -3,7 +3,7 @@ const Schema       = mongoose.Schema;
 const Offer         = require('../models/offer');
 
 const GearSchema = new Schema({
-      _offer        : { type: Schema.ObjectId, ref: 'Offer' },
+      _offer        : { type: Schema.Types.ObjectId, ref: 'Offer' },
       ColdFermChamb : String,
       HotFermChamb  : String,
       Mill          : String,
