@@ -4,26 +4,32 @@
     <input type="text" name="name" class="form-control" placeholder="Offer name">
   </div>
 <br>
+    <input type="checkbox" name="ColdFermChamb">
+    <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label><br>
+
+    <input type="checkbox" name="HotFermChamb">
+    <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label><br>
+
+    <input type="checkbox" name="Mill">
+    <label for="Mill">Middle Temperature Fermentation Chamber</label><br>
+
+    <input type="checkbox" name="Crusher">
+    <label for="Crusher">Fruit Crusher</label><br>
+
+    <input type="checkbox" name="Press">
+    <label for="Press">Fruit Press</label><br>
+
+    <input type="checkbox" name="Full">
+    <label for="Full">Full brewing cycle</label><br>
+<br>
+
   <div class="form-group">
     <label for="description">Description</label>
     <input type="text" name="description" class="form-control" placeholder="Description" size="40">
   </div>
-
-  <% if (typeof(message) != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-
 <br>
-  <select multiple name="offer">
-    <option value="ColdFermChamb">Low Temperature Fermentation Chamber<br>
-    <option value="HotFermChamb">Middle Temperature Fermentation Chamber<br>
-    <option value="Mill">Grain Mill<br>
-    <option value="Crusher">Fruit Crusher<br>
-    <option value="Press">Fruit Press<br>
-    <option value="Full">Full brewing cycle<br>
-</select>
-<br><br>
-<label for="description">Description</label>
+
+<label for="location">Location</label>
 <input type="text" id="location" class="form-control" placeholder="Location">
 <br><br>
 <div id="map"></div>
