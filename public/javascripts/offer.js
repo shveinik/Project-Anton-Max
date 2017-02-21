@@ -21,8 +21,6 @@ $.ajax({
    google.maps.event.addListener(autocomplete, 'place_changed', function() {
      infowindow.close();
      var place = autocomplete.getPlace();
-     console.log(place.formatted_address);
-    //  console.log($( "input[id='location']".value ));
      if (!place.geometry) {
        return;
      }
