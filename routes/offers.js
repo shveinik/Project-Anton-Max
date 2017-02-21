@@ -11,33 +11,30 @@ router.get("/offer", ensureLoggedIn(), (req, res) => {
 
 /* POST offer page */
 router.post('/offer', (req, res, next) => {
-  const offerInfo = {
-      _supplier    : req.user._id,
-      name         : req.body.name,
-      offer        : Array.isArray(req.body.offer) ? req.body.offer : [req.body.offer],
-      description  : req.body.description
-  };
-  const newOffer = new Offer(offerInfo);
 
+  User.findById({_id: req.user._id}, (err, user)=>{
+      if (err) { return next(err);
+       } else {
+      const offerInfo = {
+          _supplier    : user._id,
+          name         : req.body.name,
+          offer        : Array.isArray(req.body.offer) ? req.body.offer : [req.body.offer],
+          description  : req.body.description,
+      };
 
+      const newOffer = new Offer(offerInfo);
+      newOffer.save((err)=>{
+        if (err) { return next(err);}
 
-
-  newOffer.save( (err) => {
-    if (err) { return next(err) }
-
-    Offer
-   .findOne({ name: newOffer.name })
-   .populate('_supplier')
-   .exec(function (err, offer) {
-     if (err) {return handleError(err)};
-     console.log('The creator is %s', offer._supplier.username);
-     // prints "The creator is Aaron"
-   });
-
-   return res.redirect('/main');
-
+        user.offers.push(newOffer);
+        user.save((err)=>{
+          if (err) {console.log(err);}
+          return res.redirect('/main');
+        });
+      });
+    }
   });
-
 });
+
 
 module.exports = router;

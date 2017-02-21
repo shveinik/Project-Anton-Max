@@ -7,7 +7,7 @@ const UserSchema = new Schema({
       username  : String,
       password  : String,
       email     : String,
-      offers    : [{ type: Schema.Types.ObjectId, ref: 'Offer' }]
+      offers    : [{ type : Schema.Types.ObjectId, ref : 'Offer' }]
 
 });
 
