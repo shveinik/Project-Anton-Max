@@ -10,18 +10,19 @@ $.ajax({
    //Autocomplete Search
    var input = document.getElementById('location');
    var autocomplete = new google.maps.places.Autocomplete(input);
+
    //Updates Map
    var infowindow = new google.maps.InfoWindow();
    var marker = new google.maps.Marker({
      map: map
-   });
+  });
    // Get the full place details when the user selects a place from the
    // list of suggestions.
    google.maps.event.addListener(autocomplete, 'place_changed', function() {
      infowindow.close();
      var place = autocomplete.getPlace();
      console.log(place.formatted_address);
-     console.log($( "input[id='location']" ));
+    //  console.log($( "input[id='location']".value ));
      if (!place.geometry) {
        return;
      }
@@ -42,6 +43,7 @@ $.ajax({
          place.formatted_address + '</div>');
      infowindow.open(map, marker);
    });
+
  },
  error: function (err) {console.log(err);}
 });

@@ -14,7 +14,7 @@ const LocalStrategy  = require("passport-local").Strategy;
 const expressLayouts = require('express-ejs-layouts');
 const User           = require("./models/user");
 const Offer          = require("./models/offer");
-
+const Gear           = require("./models/gear");
 const mongoose       = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/Project2");
