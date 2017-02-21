@@ -11,6 +11,7 @@ router.get("/offer", ensureLoggedIn(), (req, res) => {
 
 /* POST offer page */
 router.post('/offer', (req, res, next) => {
+
   User.findById({_id: req.user._id}, (err, user)=>{
       if (err) { return next(err);
        } else {
@@ -19,11 +20,13 @@ router.post('/offer', (req, res, next) => {
           name         : req.body.name,
           offer        : Array.isArray(req.body.offer) ? req.body.offer : [req.body.offer],
           description  : req.body.description,
-          
+
       };
+
       const newOffer = new Offer(offerInfo);
       newOffer.save((err)=>{
         if (err) { return next(err);}
+
         user.offers.push(newOffer);
         user.save((err)=>{
           if (err) {console.log(err);}
@@ -33,4 +36,5 @@ router.post('/offer', (req, res, next) => {
     }
   });
 });
+
 module.exports = router;

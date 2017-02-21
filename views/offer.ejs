@@ -14,6 +14,7 @@
   <% } %>
 
 <br>
+
 <select multiple name="offer" size="7 ">
 <option value="ColdFermChamb">Low Temperature Fermentation Chamber<br>
 <option value="HotFermChamb">Middle Temperature Fermentation Chamber<br>
@@ -21,10 +22,16 @@
 <option value="Crusher">Fruit Crusher<br>
 <option value="Press">Fruit Press<br>
 <option value="Full">Full brewing cycle<br>
+
 </select>
+<br><br>
+<label for="description">Adress</label>
+<input type="text" id="location" class="form-control" placeholder="Location" size="40">
+<br><br>
+<div id="map"></div>
 <br>
   <button type="submit">Ok</button>
-
+  <a href ="/main">Back</a>
 </form>
 <br>
 
@@ -34,6 +41,7 @@
 <a href ="/main">Back</a>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfqsN_5UqBfkXH2ZgI9Hb7eLPqVCttmk	"> </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfqsN_5UqBfkXH2ZgI9Hb7eLPqVCttmk&libraries=places	"> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
 <script type="text/javascript" src="javascripts/offer.js"> </script>
