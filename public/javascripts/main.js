@@ -4,11 +4,13 @@ var equipment = $.ajax({
  success: function (response) {
  }
 });
+
 var offers = $.ajax({
   url:     'http://localhost:3000/all/offers',
  type:    'GET',
  success: function (response) {}
 });
+
 $.when( equipment , offers ).done(function( equipment, offers ) {
    let myGears  = equipment[0];
    let myOffers = offers[0];
@@ -21,21 +23,25 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
    let crusher   = [];
    let press     = [];
    let full      = [];
+
   // Create and Initialize Map
   const map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: {lat: 40.417080, lng: -3.703612}
   });
+
  //map visibility function
  function setMapOnAll(map, array) {
     for (var i = 0; i < array.length; i++) {
       array[i].setMap(map);
     }
   }
+
  // map init function
  function mapInit(array, list, png){
    address = list[1];
    geocoder.geocode( { 'address': address }, function(results, status) {
+
      if (status == google.maps.GeocoderStatus.OK) {
        var marker = new google.maps.Marker({
          map: map,
@@ -52,6 +58,7 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
      }
    });
  }
+
    myGears.forEach(function(gears){
      var equipments = gears.equipment;
      console.log(gears._id);
@@ -74,6 +81,7 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
        }
      });
    });
+
    //coldChamb button
     $("#coldChamb").on("click",function() {
       var data = $(this).attr("data");
@@ -84,6 +92,7 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, coldChamb);}
     });
+
     //hotChamb button
     $("#hotChamb").on("click",function() {
       var data = $(this).attr("data");
@@ -94,6 +103,7 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, hotChamb);}
     });
+
     //mill button
     $("#mill").on("click",function() {
       var data = $(this).attr("data");
@@ -134,4 +144,5 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, full);}
     });
+
 });

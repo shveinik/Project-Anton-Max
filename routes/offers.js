@@ -35,12 +35,14 @@ router.post('/offer', (req, res, next) => {
     });
   });
 });
+
 /* Sending Offer JSON to front end */
 router.get('/all/offers',(req, res, next) => {
   Offer.find((error, offers) => {
     res.json(offers);
   });
 });
+
 /* GET all/equipment */
 router.get('/all/equipment',(req, res, next) => {
   Gear.find((error, gears) => {
@@ -51,6 +53,7 @@ router.get('/all/equipment',(req, res, next) => {
     }
   });
 });
+
 /* GET /gear/:gearId */
 router.get('/gear/:gearId', ensureLoggedIn(), (req, res, next)=> {
    let gearId = req.params.gearId;
@@ -67,6 +70,7 @@ router.get('/gear/:gearId', ensureLoggedIn(), (req, res, next)=> {
     });
   });
 });
+
 /* GET user profile page */
 router.get('/:userId', ensureLoggedIn(), (req, res, next)=> {
   let userId = req.params.userId;
@@ -81,6 +85,7 @@ router.get('/:userId', ensureLoggedIn(), (req, res, next)=> {
      });
   });
 });
+
 /* GET gear edit*/
 router.get('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
@@ -100,6 +105,7 @@ router.get('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
      });
    });
 });
+
 /* POST updated gear */
 router.post('/gear/:id/update', (req, res, next) => {
   let gearToUpdate = {
@@ -125,6 +131,7 @@ router.post('/gear/:id/update', (req, res, next) => {
        }
      });
   });
+
 /* GET delete gear */
 router.get('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
@@ -151,4 +158,5 @@ router.get('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
      });
     });
   });
+
 module.exports = router;
