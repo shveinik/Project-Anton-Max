@@ -114,7 +114,6 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, mill);}
     });
-
     //crusher button
     $("#crusher").on("click",function() {
       var data = $(this).attr("data");
@@ -125,7 +124,6 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, crusher);}
     });
-
     //press button
     $("#press").on("click",function() {
       var data = $(this).attr("data");
@@ -136,7 +134,6 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, press);}
     });
-
     //full button
     $("#full").on("click",function() {
       var data = $(this).attr("data");
@@ -147,4 +144,5 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, full);}
     });
+
 });

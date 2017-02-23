@@ -4,12 +4,10 @@ const User  = require("../models/user");
 const Offer = require("../models/offer");
 const Gear  = require("../models/gear");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
-
 /*GET offer page */
 router.get("/offer", ensureLoggedIn(), (req, res) => {
   res.render("offer", { user: req.user });
 });
-
 /* POST offer page */
 router.post('/offer', (req, res, next) => {
   const offerInfo = {
@@ -123,7 +121,6 @@ router.post('/gear/:id/update', (req, res, next) => {
            };
           Offer.findOne({"offer": req.params.id}, (err, offer)=>{
             Offer.findByIdAndUpdate(offer.id, offerToUpdate, (err, offer)=>{
-
              if (err) {
                   next(err);
                 }else{
