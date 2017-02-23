@@ -27,6 +27,8 @@ a {
   background-color: green;
   display: flex;
   flex-wrap: wrap;
+  border: 5px solid black;
+
 }
 
 
@@ -46,7 +48,7 @@ a {
 }
 
 #bottomSquare {
-  height: 20%;
+  height: 9%;
   width: 100%;
   background-color: yellow;
 }
@@ -68,6 +70,12 @@ a {
     color: white;
 }
 #passwordField{
+  height: 50%;
+  width: 80%;
+  background-color:red;
+    color: white;
+}
+#emailField{
   height: 50%;
   width: 80%;
   background-color:red;
