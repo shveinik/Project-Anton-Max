@@ -1,6 +1,10 @@
+*{
+  font-family: 'Roboto Slab', serif;
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 1em;
 }
 
 a {
@@ -11,4 +15,31 @@ a {
 #map {
  height: 600px;
  width: 100%;
+}
+
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
+  max-height: 70px;
+  max-width: 70px;
+  object-fit: contain;
+}
+
+.container{
+  background-color: red;
+  width: 100vh;
+  height: 100vh;
+  max-height:800px;
+  max-width: 481px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+.form-group{
+  padding:30px 0 0 0;
+  background-color: green;
+  width:100%;
+  max-width:380px;
+}
+.form-control{
+  text-align: center;
 }

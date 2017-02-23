@@ -17,18 +17,13 @@ router.post('/offer', (req, res, next) => {
       _supplier    : req.user._id,
       name         : req.body.name,
       description  : req.body.description,
-      location     : req.body.location
   };
   const newOffer = new Offer(offerInfo);
 
   const gearInfo = {
-    _offer : newOffer._id,
-    ColdFermChamb : req.body.ColdFermChamb,
-    HotFermChamb : req.body.HotFermChamb,
-    Mill : req.body.Mill,
-    Crusher : req.body.Crusher,
-    Press : req.body.Press,
-    Full : req.body.Full,
+    _offer        : newOffer._id,
+    location      : req.body.location,
+    equipment     : Array.isArray(req.body.equipment) ? req.body.equipment : [req.body.equipment],
   };
   const newGear = new Gear(gearInfo);
 
@@ -48,12 +43,17 @@ router.post('/offer', (req, res, next) => {
   });
 });
 
+/* Sending Gear JSON to front end */
+router.get('/all/equipment',(req, res, next) => {
+  Gear.find((error, gears) => {
+      res.json(gears);
+    });
+});
+
+/* Sending Offer JSON to front end */
 router.get('/all/offers',(req, res, next) => {
   Offer.find((error, offers) => {
-    if (error) { next(error);
-    } else {
-      res.json(offers);
-    }
+    res.json(offers);
   });
 });
 

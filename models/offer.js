@@ -8,7 +8,6 @@ const OfferSchema = new Schema({
       name        : String,
       description : String,
       offer       : [{ type: Schema.ObjectId, ref: "Gear"}],
-      location    :  String,
 });
 
 const Offer = mongoose.model("Offer", OfferSchema);
