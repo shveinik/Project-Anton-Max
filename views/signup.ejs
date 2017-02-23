@@ -1,4 +1,4 @@
-<form action="/signup" method="post">
+<%# <form action="/signup" method="post">
   <div class="form-group">
     <label for="username">name</label>
     <input type="text" name="username" class="form-control">
@@ -14,11 +14,37 @@
     <input type="text" name="email" class="form-control">
   </div>
 
-  <% if (typeof(message) != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
 
   <button type="submit">Signup</button>
 </form>
 <br>
-Already have an account, <a href ="/login">Login!</a>
+Already have an account, <a href ="/login">Login!</a>%>
+
+<form action="/login" method="post">
+
+<div id="mainSquare">
+ <div id="loginSquare">
+   <div id="logoSquare">
+     <div id="logo">
+
+     </div>
+    </div>
+    <div class="lineSquare"></div>
+    <div class="lineSquare">
+    <input id="loginField" type="text" name="username" placeholder="name"></div>
+    <div class="lineSquare">
+    <input id="passwordField" type="password" name="password" placeholder="password"></div>
+    <div class="lineSquare"><button type="submit">login</button></div>
+    <% if (typeof(message) != "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <div class="lineSquare"><a href="/signup">SignUp</a></div>
+    <div id="bottomSquare"></div>
+
+
+
+
+
+ </div>
+</div>
+</form>

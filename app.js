@@ -14,7 +14,7 @@ const LocalStrategy  = require("passport-local").Strategy;
 const expressLayouts = require('express-ejs-layouts');
 const User           = require("./models/user");
 const Offer          = require("./models/offer");
-const Gear           = require("./models/gear")
+const Gear           = require("./models/gear");
 const mongoose       = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/Project2");
@@ -64,7 +64,10 @@ passport.deserializeUser((id, cb) => {
 passport.use('signup', new LocalStrategy(
   { passReqToCallback: true },
   (req, username, password, next) => {
+
+    // To avoid race conditions
             User.findOne({
+
             'username': username
         }, (err, user) => {
             if (err){ return next(err); }
@@ -73,7 +76,7 @@ passport.use('signup', new LocalStrategy(
               console.log('lol');
                 return next(null, false);
             } else {
-              console.log("Hello!")
+              console.log("Hello!");
                 // Destructure the body
                 const { username, email, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -89,6 +92,7 @@ passport.use('signup', new LocalStrategy(
                 });
             }
         });
+
 }));
 
 //Login in

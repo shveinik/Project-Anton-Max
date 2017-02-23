@@ -1,0 +1,10 @@
+<%= user.username%><br>
+<br>
+ <%= user.email%><br>
+ <br>
+  <% offer.forEach((offer) => { %>
+  <br>
+  <a href="/gear/<%= offer.offer %>/"><%= offer.name %><br></a>
+  <br>
+<%  }) %>
+<a href="/main">Back to map<br></a>

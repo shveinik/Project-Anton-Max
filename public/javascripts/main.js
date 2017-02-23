@@ -50,6 +50,9 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
         marker.setIcon("./imgs/" + png + ".png");
        array.push(marker);
        setMapOnAll(null, array);
+       marker.addListener('click', function() {
+       location.href = "/gear/" + list[2];
+       });
      } else {
        alert('Geocode was not successful for the following reason: ' + status);
      }
@@ -58,12 +61,11 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
 
    myGears.forEach(function(gears){
      var equipments = gears.equipment;
+     console.log(gears._id);
      var eqList = equipments.map(function(equipment){
-       return [equipment, gears.location];
+       return [equipment, gears.location, gears._id];
      });
      eqList.forEach(function(list){
-       console.log(list);
-       console.log(list[1]);
                if (list[0] == "ColdFermChamb"){
           mapInit(coldChamb, list, "coldChamb");
         } else if (list[0] == "HotFermChamb"){
@@ -145,5 +147,4 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
       $(this).attr("data", "true");
       setMapOnAll(null, full);}
     });
-
 });
