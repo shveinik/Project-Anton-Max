@@ -24,6 +24,7 @@ a {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
   position:absolute;
 }
 
@@ -62,7 +63,7 @@ a {
   max-width: 481px;
   max-height: 800px;
   height: 70%;
-  background-color: green;
+  /*background-color: green;*/
   display: flex;
   flex-wrap: wrap;
   /*border: 5px solid black;*/
@@ -79,19 +80,19 @@ a {
 #logo{
   height: 100%;
   width: 40%;
-  background-color: pink;
+  /*background-color: pink;*/
 }
 
 #bottomSquare {
   height: 9%;
   width: 100%;
-  background-color: yellow;
+  /*background-color: yellow;*/
 }
 
 .lineSquare{
   height: 10%;
   width: 100%;
-  background-color: red;
+  /*background-color: red;*/
   margin: 1%;
   display: flex;
   justify-content: center;
@@ -101,19 +102,19 @@ a {
 #loginField{
   height: 50%;
   width: 80%;
-  background-color:red;
+  /*background-color:red;*/
     color: white;
 }
 #passwordField{
   height: 50%;
   width: 80%;
-  background-color:red;
+  /*background-color:red;*/
     color: white;
 }
 #emailField{
   height: 50%;
   width: 80%;
-  background-color:red;
+  /*background-color:red;*/
     color: white;
 }
 
