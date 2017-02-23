@@ -11,6 +11,22 @@ a {
 }
 
 
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
+  max-height: 70px;
+  max-width: 70px;
+  object-fit: contain;
+}
+
+.login-bg{
+  width: 100%;
+  height:100%;
+  background-image: url("http://localhost:3000/public/imgs/login-signup-background-.jpg") ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  position:absolute;
+}
+
 #map {
  height: 400px;
  width: 100%;
@@ -20,9 +36,7 @@ a {
 @media only screen and (min-width: 480px) {
 
   #loginSquare{
-    height: 100vh;
-    width: 100vw;
-    background-color: green;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
   }
@@ -34,6 +48,7 @@ a {
   max-height: 70px;
   max-width: 70px;
   object-fit: contain;
+
 }
 
 #mainSquare{
@@ -46,8 +61,6 @@ a {
 #loginSquare{
   max-width: 481px;
   max-height: 800px;
-  min-width: 241px;
-  min-height: 400px;
   height: 70%;
   background-color: green;
   display: flex;
