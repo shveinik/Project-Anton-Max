@@ -3,7 +3,7 @@
 }
 
 body {
-  font-size: 14px;
+    font-size: 20px;
 }
 
 a {
@@ -60,10 +60,10 @@ a {
 }
 
 #loginSquare{
+  border: 20px solid #ED2927;
   max-width: 481px;
   max-height: 800px;
   height: 70%;
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
   /*border: 5px solid black;*/
@@ -72,27 +72,30 @@ a {
 #logoSquare{
   height: 30%;
   width: 100%;
-  background-color: rgb(89, 106, 164);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 #logo{
-  height: 100%;
+  height: 90%;
   width: 40%;
-  background-color: pink;
+  background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 #bottomSquare {
   height: 9%;
   width: 100%;
-  background-color: yellow;
+  /*background-color: yellow;*/
 }
 
 .lineSquare{
   height: 10%;
   width: 100%;
-  background-color: red;
+  background-color: hsla(138, 11%, 92%, 0.65);
   margin: 1%;
   display: flex;
   justify-content: center;
@@ -100,22 +103,25 @@ a {
 }
 
 #loginField{
-  height: 50%;
-  width: 80%;
-  background-color:red;
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+    color: blue;
 }
 #passwordField{
-  height: 50%;
-  width: 80%;
-  background-color:red;
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+    color: blue;
 }
 #emailField{
-  height: 50%;
-  width: 80%;
-  background-color:red;
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+    color: blue;
 }
 
 #underMap{
@@ -123,4 +129,9 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.link{
+  font-weight: 600;
+  color: white;
 }
