@@ -4,12 +4,10 @@ const User  = require("../models/user");
 const Offer = require("../models/offer");
 const Gear  = require("../models/gear");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
-
 /*GET offer page */
 router.get("/offer", ensureLoggedIn(), (req, res) => {
   res.render("offer", { user: req.user });
 });
-
 /* POST offer page */
 router.post('/offer', (req, res, next) => {
   const offerInfo = {
@@ -37,8 +35,13 @@ router.post('/offer', (req, res, next) => {
     });
   });
 });
-
-
+/* Sending Offer JSON to front end */
+router.get('/all/offers',(req, res, next) => {
+  Offer.find((error, offers) => {
+    res.json(offers);
+  });
+});
+/* GET all/equipment */
 router.get('/all/equipment',(req, res, next) => {
   Gear.find((error, gears) => {
     if (error) { next(error);
@@ -48,41 +51,37 @@ router.get('/all/equipment',(req, res, next) => {
     }
   });
 });
-
-
+/* GET /gear/:gearId */
 router.get('/gear/:gearId', ensureLoggedIn(), (req, res, next)=> {
    let gearId = req.params.gearId;
    Offer.findOne({"offer": gearId}, (err, offer)=>{
-   let userId = offer._supplier;
-  User.findById(userId,(err, user) =>{
-   Gear.findById(gearId, (err, gear) => {
-    if (err) {
-      next(err);
-    } else {
-      res.render('gear/gear-page', { offer , gear, user  }  );
-    }
+     let userId = offer._supplier;
+      User.findById(userId,(err, user) =>{
+       Gear.findById(gearId, (err, gear) => {
+        if (err) {
+          next(err);
+        } else {
+          res.render('gear/gear-page', { offer , gear, user  }  );
+        }
+      });
+    });
   });
 });
-});
-});
-
-
+/* GET user profile page */
 router.get('/:userId', ensureLoggedIn(), (req, res, next)=> {
   let userId = req.params.userId;
-  Offer.find({"_supplier": userId},(err, offer)=>{
+    Offer.find({"_supplier": userId},(err, offer)=>{
       User.findById(userId, (err, user) => {
-   if (err) {
-     next(err);
-   } else {
-     console.log(offer);
-     res.render('user-profile', {  user : user , offer : offer  }  );
-   }
- });
+       if (err) {
+         next(err);
+       } else {
+         console.log(offer);
+         res.render('user-profile', {  user : user , offer : offer  }  );
+       }
+     });
+  });
 });
-});
-
-
-
+/* GET gear edit*/
 router.get('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
    Gear.findById(gearId, (err, gear)=>{
@@ -101,8 +100,7 @@ router.get('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
      });
    });
 });
-
-
+/* POST updated gear */
 router.post('/gear/:id/update', (req, res, next) => {
   let gearToUpdate = {
     equipment : req.body.equipment
@@ -117,7 +115,6 @@ router.post('/gear/:id/update', (req, res, next) => {
            };
           Offer.findOne({"offer": req.params.id}, (err, offer)=>{
             Offer.findByIdAndUpdate(offer.id, offerToUpdate, (err, offer)=>{
-
              if (err) {
                   next(err);
                 }else{
@@ -128,51 +125,30 @@ router.post('/gear/:id/update', (req, res, next) => {
        }
      });
   });
-
-
+/* GET delete gear */
 router.get('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
      Gear.findById(gearId, (err, gear)=>{
-     Offer.findOne({"offer": gearId}, (err, offer)=>{
-   let supplier = offer._supplier;
+       Offer.findOne({"offer": gearId}, (err, offer)=>{
+          let supplier = offer._supplier;
            if(err){
             next(err);
          } else {
-        if(supplier == req.user.id){
-          Gear.findByIdAndRemove(req.params.id, (err, gear)=>{
-            console.log("Deleted");
-            if (err) {
-               next(err);
-          } else {
-              res.redirect('/main');
-    }
-  });
-          } else {
-          console.log("Redirected");
-             res.redirect('/main');
+             if(supplier == req.user.id){
+                Gear.findByIdAndRemove(req.params.id, (err, gear)=>{
+                  console.log("Deleted");
+                  if (err) {
+                    next(err);
+                  } else {
+                    res.redirect('/main');
+                  }
+                });
+            } else {
+            console.log("Redirected");
+               res.redirect('/main');
+         }
        }
-      }
      });
     });
-   });
-
-
-
-router.get('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
-  Gear.findByIdAndRemove(req.params.id, (err, gear)=>{
-    if (err) {
-      next(err);
-    }else{
-      res.redirect('/main');
-    }
   });
-});
-
-
-
-
-
-
-
-
 module.exports = router;
