@@ -1,0 +1,21 @@
+Offer name:  <%= offer.name %><br>
+
+<br>
+Offer description:  <%= offer.description %><br>
+
+<br>
+
+Username:  <a href="/<%= user._id %>/"><%= user.username %><br></a>
+<br>
+Email:  <%= user.email%><br>
+<br>
+Where:  <%= gear.location %><br>
+<br>
+Equipment:  <%= gear.equipment %><br>
+<br>
+
+<a href="/main">Back to map<br></a>
+<br>
+<a href="/gear/<%= gear._id %>/edit">Edit<br></a>
+<br>
+<a href="/gear/<%= gear._id %>/delete">Delete<br></a>

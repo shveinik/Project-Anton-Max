@@ -1,19 +1,39 @@
 <form action="/login" method="post">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" name="username" class="form-control" placeholder="Username">
-  </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" class="form-control" placeholder="Password">
-  </div>
+<div id="mainSquare">
+ <div id="loginSquare">
+   <div id="logoSquare">
+     <div id="logo">
 
-  <% if (typeof(message) != "undefined") { %>
-    <div class="error-message"><%= message %></div>
-  <% } %>
-  
-  <button type="submit">Login</button>
+     </div>
+    </div>
+    <div class="lineSquare"></div>
+    <div class="lineSquare">
+    <input id="loginField" type="text" name="username" placeholder="name"></div>
+    <div class="lineSquare">
+    <input id="passwordField" type="password" name="password" placeholder="password"></div>
+    <div class="lineSquare"><button type="submit">login</button></div>
+    <% if (typeof(message) != "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <div class="lineSquare"><a href="/signup">SignUp</a></div>
+    <div id="bottomSquare"></div>
+
+
+
+
+
+ </div>
+</div>
 </form>
-<br>
-Don't have an account, <a href ="/signup">Sign up!</a>
+
+    <%# <form action="/login" method="post">
+
+    <input type="text" name="username">
+
+
+    <input type="password" name="password">
+
+
+  <button type="submit">Login</button>
+</form>%>

@@ -1,0 +1,32 @@
+<h2>Edit offer</h2>
+<form action="/gear/<%= gear._id %>/update" method="POST">
+
+  <label for="name">Offername: </label>
+  <input type="text" id="name" name="name" value="<%= offer.name %>" size="40">
+  <br>
+
+  <label for="description">Description: </label>
+  <input type="text" id="description" name="description" value="<%= offer.description %>" size="40">
+  <br>
+
+  <input type="checkbox" name="equipment" value="ColdFermChamb">
+  <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label>
+<br>
+  <input type="checkbox" name="equipment" value="HotFermChamb">
+  <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label>
+<br>
+  <input type="checkbox" name="equipment" value="Mill">
+  <label for="Mill">Mill</label>
+<br>
+  <input type="checkbox" name="equipment" value="Crusher">
+  <label for="Crusher">Fruit Crusher</label>
+<br>
+  <input type="checkbox" name="equipment" value="Press">
+  <label for="Press">Fruit Press</label>
+<br>
+  <input type="checkbox" name="equipment" value="Full">
+  <label for="Full">Full brewing cycle</label>
+<br>
+  <button type="submit">Edit offer</button>
+
+</form>

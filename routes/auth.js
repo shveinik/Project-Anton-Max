@@ -8,6 +8,7 @@ const passport = require("passport");
 const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
 const User = require("../models/user");
 
+
 /* GET Sign up */
 router.get('/signup', ensureLoggedOut(), (req, res) => {
     res.render('signup');
@@ -41,6 +42,8 @@ router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
     req.session.destroy();
     res.redirect('/');
 });
+
+
 
 
 module.exports = router;
