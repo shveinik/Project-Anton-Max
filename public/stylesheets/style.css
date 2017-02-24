@@ -1,5 +1,5 @@
 *{
-  font-family: 'Roboto Slab';
+  font-family: 'Roboto Slab' !important;
 }
 
 body {
@@ -60,13 +60,12 @@ a {
 }
 
 #loginSquare{
-  border: 20px solid #ED2927;
-  max-width: 481px;
+  border: 20px solid rgba(238, 41, 40, 1); /* red color*/
+  max-width: 455px;
   max-height: 800px;
-  height: 70%;
+  height: 94%;
   display: flex;
   flex-wrap: wrap;
-  /*border: 5px solid black;*/
 }
 
 #logoSquare{
@@ -79,7 +78,7 @@ a {
 
 #logo{
   height: 90%;
-  width: 40%;
+  width: 33%;
   background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
   background-position: center;
   background-size: contain;
@@ -92,10 +91,13 @@ a {
   /*background-color: yellow;*/
 }
 .lineSquare{
-  height: 10%;
+  height: 8%;
   width: 100%;
   background-color: hsla(138, 11%, 92%, 0.65); /* pale green */
-  margin: 1%;
+  margin-left:10%;
+  margin-right:10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,6 +135,7 @@ a {
 }
 
 .link{
+  font-size: 16px;
   font-weight: 600;
   color: white;
 }
@@ -145,10 +148,19 @@ a {
   height:100%;
   font-size: 20px;
   color: hsl(241, 63%, 50%);
-  background-color: hsla(241, 0%, 100%, 0.4)
+  background-color: hsla(241, 0%, 100%, 0.4);
 }
 
-.welcome{
-  font-size: 20px;
+.submit:hover{
+  background-color: rgba(238, 41, 40, 0.6);
+  color:white;
+}
+
+.submit:active{
+  background-color: hsla(241, 0%, 100%, 0.8);
+  color: rgba(238, 41, 40, 1);
+}
+
+.text{
   color: hsl(241, 63%, 50%);
 }
