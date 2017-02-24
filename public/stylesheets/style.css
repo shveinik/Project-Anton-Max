@@ -1,22 +1,21 @@
 *{
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab' !important;
+}
+body {
+    font-size: 1em;
 }
 
-body {
-  font-size: 14px;
-}
+input {outline: 0 !important;}
 
 a {
   color: #00B7FF;
 }
 
-
-#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full, #info {
   max-height: 70px;
   max-width: 70px;
   object-fit: contain;
 }
-
 .login-bg{
   width: 100%;
   height: 100%;
@@ -28,98 +27,216 @@ a {
   position:absolute;
 }
 
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        font-size: 0.9em;
+    }
+}
+
+#infoFooter{
+  height: 85%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 #map {
- height: 400px;
+ height: 85%;
  width: 100%;
-}
-
-
-@media only screen and (min-width: 480px) {
-
-  #loginSquare{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
 }
 
 
-#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
-  max-height: 70px;
-  max-width: 70px;
-  object-fit: contain;
+#mainMain{
+  height: 100vh;
+}
+
+#navBar{
+  height: 5%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
 }
 
+#navLogo{
+  height: 100%;
+  width: 10%;
+  background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+
+}
+
+#navHello{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+#navCenter{
+  height: 100%;
+  width: 5%;
+
+
+}
+
+#makeOffer{
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#navEditProfile{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+#navLogout{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#footer{
+  position: fixed;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full, #info {
+  /*max-height: 70px;
+  max-width: 70px;*/
+  /*object-fit: contain;*/
+  height: 100%;
+  width: 10%;
+}
 #mainSquare{
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 #loginSquare{
+  border: 20px solid #ED2927;
   max-width: 481px;
   max-height: 800px;
   height: 70%;
-  /*background-color: green;*/
   display: flex;
   flex-wrap: wrap;
   /*border: 5px solid black;*/
 }
-
 #logoSquare{
   height: 30%;
   width: 100%;
-  background-color: rgb(89, 106, 164);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
 #logo{
-  height: 100%;
+  height: 90%;
   width: 40%;
-  /*background-color: pink;*/
+  background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-
 #bottomSquare {
   height: 9%;
   width: 100%;
   /*background-color: yellow;*/
 }
-
 .lineSquare{
   height: 10%;
   width: 100%;
-  /*background-color: red;*/2
+  background-color: hsla(138, 11%, 92%, 0.65); /* pale green */
   margin: 1%;
   display: flex;
   justify-content: center;
- }
-
+  align-items: center;
+}
 #loginField{
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+    color: blue;
+    border: none;
 }
 #passwordField{
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+  color: blue;
+  border: none;
 }
 #emailField{
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
+  height: 70%;
+  width: 95%;
+  text-align: center;
+  background-color:white;
+    color: blue;
+    border: none;
 }
-
 #underMap{
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-around;
+}
+.link{
+  font-weight: 600;
+  color: white;
+}
+.submit{
+  border: none;
+  text-decoration: underline;
+  display: inline-block;
+  width:100%;
+  height:100%;
+  font-size: 20px;
+  color: hsl(241, 63%, 50%);
+  background-color: hsla(241, 0%, 100%, 0.4)
+}
+.welcome{
+  color: hsl(241, 63%, 50%);
+}
+
+.inner{
+  width: 100%;
+
 }
