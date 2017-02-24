@@ -24,6 +24,11 @@ router.get("/main", ensureLoggedIn(), (req, res) => {
   res.render("main", { user: req.user });
 });
 
+/* GET homepage */
+router.post("/main", ensureLoggedIn(), (req, res) => {
+  res.render("main", { user: req.user });
+});
+
 /* POST User Info to DB */
 router.post('/signup', ensureLoggedOut(), passport.authenticate('signup', {
   successRedirect : '/main',

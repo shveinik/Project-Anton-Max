@@ -1,21 +1,71 @@
-Offer name:  <%= offer.name %><br>
-
-<br>
-Offer description:  <%= offer.description %><br>
-
-<br>
-
-Username:  <a href="/<%= user._id %>/"><%= user.username %><br></a>
-<br>
-Email:  <%= user.email%><br>
-<br>
-Where:  <%= gear.location %><br>
-<br>
-Equipment:  <%= gear.equipment %><br>
-<br>
-
-<a href="/main">Back to map<br></a>
-<br>
-<a href="/gear/<%= gear._id %>/edit">Edit<br></a>
-<br>
-<a href="/gear/<%= gear._id %>/delete">Delete<br></a>
+<div class="login-bg">
+  <div id="mainSquareform">
+    <div id="loginSquareform">
+      <div class="lineSquaretitle plusmargin dropdown">
+        OFFER
+          <div class="dropdown-content wordwrapper">
+            <ul>
+              <li><%= offer.name %></li>
+            </ul>
+          </div>
+      </div>
+      <div class="lineSquaretitle dropdown">
+        DESCRIPTION
+        <div class="dropdown-content wordwrapper">
+          <ul>
+              <li><%= offer.description %></li>
+           </ul>
+        </div>
+      </div>
+      <div class="lineSquaretitle dropdown ">
+        USERNAME
+        <div class="dropdown-content wordwrapper">
+          <ul>
+              <li><%= user.username %></li>
+           </ul>
+        </div>
+      </div>
+      <div class="lineSquaretitle dropdown">
+        EMAIL
+        <div class="dropdown-content wordwrapper">
+          <ul>
+              <li><%= user.email%></li>
+           </ul>
+        </div>
+      </div>
+      <div class="lineSquaretitle dropdown">
+        WHERE
+        <div class="dropdown-content wordwrapper">
+          <ul>
+              <li><%= gear.location %></li>
+           </ul>
+        </div>
+      </div>
+      <div class="lineSquaretitle dropdown">
+        EQUIPMENT
+        <div class="dropdown-content wordwrapper">
+          <ul>
+            <% gear.equipment.forEach(function(e){ %>
+              <li><%= e %></li>
+            <% }); %>
+           </ul>
+        </div>
+      </div>
+      <div class="lineSquareform" style="padding: 0px;">
+        <form action="/main" method="post" style="height:100%; width:100%">
+          <button type="submit" class="submit2" style="padding: 18px;">Back to map</button>
+        </form>
+      </div>
+      <div class="lineSquareform" style="padding: 0px;">
+        <form action="/gear/<%= gear._id %>/edit" method="post"style="height:100%; width:100%">
+          <button type="submit" class="submit2" style="padding: 18px;">Edit</button>
+        </form>
+      </div>
+      <div class="lineSquareform" style="padding: 0px;">
+        <form action="/gear/<%= gear._id %>/delete" method="post" style="height:100%; width:100%">
+          <button type="submit" class="submit2" style="padding: 18px;">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

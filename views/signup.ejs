@@ -10,16 +10,19 @@
 
      </div>
     </div>
-    <div class="lineSquare"></div>
+    <div class="lineSquare"><div class="text">Fill in your details</div></div>
     <div class="lineSquare">
-    <input id="loginField" type="text" name="username" placeholder="name"></div>
+    <input id="loginField" type="text" name="username" placeholder="NAME"></div>
     <div class="lineSquare">
-    <input id="passwordField" type="password" name="password" placeholder="password"></div>
+    <input id="passwordField" type="password" name="password" placeholder="PASSWORD"></div>
     <div class="lineSquare">
-    <input id="emailField" type="text" name="email" placeholder="email"></div>
+    <input id="emailField" type="text" name="email" placeholder="EMAIL"></div>
     <% if (typeof(message) != "undefined") { %>
       <div class="error-message"><%= message %></div>
     <% } %>
+    <div class="lineSquare">
+      <button type="submit" class="submit">Submit</button>
+    </div>
     <div class="lineSquare"><a href="/login" class="link">Already have an account, log in!</a></div>
     <div id="bottomSquare"></div>
 
