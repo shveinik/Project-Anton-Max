@@ -87,7 +87,7 @@ router.get('/:userId', ensureLoggedIn(), (req, res, next)=> {
 });
 
 /* GET gear edit*/
-router.get('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
+router.post('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
    Gear.findById(gearId, (err, gear)=>{
      Offer.findOne({"offer": gearId}, (err, offer)=>{
@@ -133,7 +133,7 @@ router.post('/gear/:id/update', (req, res, next) => {
   });
 
 /* GET delete gear */
-router.get('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
+router.post('/gear/:id/delete', ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
      Gear.findById(gearId, (err, gear)=>{
        Offer.findOne({"offer": gearId}, (err, offer)=>{

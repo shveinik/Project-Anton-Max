@@ -62,9 +62,12 @@ $.when( equipment , offers ).done(function( equipment, offers ) {
    myGears.forEach(function(gears){
      var equipments = gears.equipment;
      console.log(gears._id);
+     console.log(equipments);
      var eqList = equipments.map(function(equipment){
        return [equipment, gears.location, gears._id];
      });
+     console.log(eqList);
+     console.log("hello");
      eqList.forEach(function(list){
                if (list[0] == "ColdFermChamb"){
           mapInit(coldChamb, list, "coldChamb");
