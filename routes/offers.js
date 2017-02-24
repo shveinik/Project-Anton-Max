@@ -107,7 +107,7 @@ router.post('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
 });
 
 /* GET gear edit*/
-router.get('/gear/:id/edit', (req, res, next)=>{
+router.get('/gear/:id/edit',ensureLoggedIn(), (req, res, next)=>{
    let gearId = req.params.id;
    Gear.findById(gearId, (err, gear)=>{
      Offer.findOne({"offer": gearId}, (err, offer)=>{
@@ -127,7 +127,7 @@ router.get('/gear/:id/edit', (req, res, next)=>{
 });
 
 /* POST updated gear */
-router.post('/gear/:id/update', (req, res, next) => {
+router.post('/gear/:id/update',ensureLoggedIn(), (req, res, next) => {
   let gearToUpdate = {
     equipment : req.body.equipment
     };

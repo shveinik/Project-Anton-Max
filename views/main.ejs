@@ -1,15 +1,15 @@
 
 <% if(user){%>
+<div class="main-bg">
+<div class="overlay">
 <div id="mainMain">
-
-
 <div id="navBar">
 <div id="navLogo"></div>
-<div id="navHello"><div class="inner">Hello,<%= user.username %>!</div></div>
+<div id="navHello"><div class="inner">Hello, <%= user.username %>!</div></div>
 <div id="navCenter"></div>
-<div id="makeOffer"><div class="inner"><a href="/offer">New Offer</a></div></div>
-<div id="navEditProfile"><div class="inner"><a href="/<%= user.id %>">Profile</a></div></div>
-<div id="navLogout"><div class="inner"><a href="/logout">Logout</a></div></div>
+<div id="makeOffer"><div class="inner"><a href="/offer"class="inner">New Offer</a></div></div>
+<div id="navEditProfile"><div class="inner"><a href="/<%= user.id %>" class="inner">Profile</a></div></div>
+<div id="navLogout"><div class="inner"><a href="/logout" class="inner">Logout</a></div></div>
 
 </div>
 <div id="infoFooter"></div>
@@ -33,7 +33,8 @@
   </div>
 </div>
 
-
+</div>
+</div>
   <% }%>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiVF3y8-6c0sENmx-_am94n_UR9FIPDx0&libraries=places	"> </script>

@@ -1,42 +1,37 @@
-<%# <form action="/offer" method="post">
-  <div class="form-group">
-    <label for="name">Offer name</label>
-    <input type="text" name="name" class="form-control" placeholder="Offer name">
-  </div>
 
+<div id="mainMain">
+<div id="offerTop">
+  <div id="innerOfferTop">
+<form action="/offer" method="post">
+    <label for="name">Offer name</label>
+    <input type="text" name="name" placeholder="Offer name">
 <br>
     <input type="checkbox" name="equipment" value="ColdFermChamb">
     <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label><br>
-
     <input type="checkbox" name="equipment" value="HotFermChamb">
     <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label><br>
-
     <input type="checkbox" name="equipment" value="Mill">
     <label for="Mill">Mill</label><br>
-
     <input type="checkbox" name="equipment" value="Crusher">
     <label for="Crusher">Fruit Crusher</label><br>
-
     <input type="checkbox" name="equipment" value="Press">
     <label for="Press">Fruit Press</label><br>
-
     <input type="checkbox" name="equipment" value="Full">
     <label for="Full">Full brewing cycle</label><br>
 <br>
-  <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" name="description" class="form-control" placeholder="Description" size="40">
-  </div>
+    <input type="text" name="description"  placeholder="Description" size="40">
 <br>
 <label for="location">Location</label>
-<input type="text" id="location" name="location" class="form-control" placeholder="Location" size="90">
+<input type="text" id="location" name="location"  placeholder="Location" size="90">
 <br><br>
-
 <br>
   <button type="submit">Ok</button>
   <a href ="/main">Back</a>
-</form>%>
-<div id="map"></div>
+</form>
+</div>
+</div>
+<div id="map" style="height:50vh;"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfqsN_5UqBfkXH2ZgI9Hb7eLPqVCttmk&libraries=places   "> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
 <script type="text/javascript" src="javascripts/offer.js"> </script>
