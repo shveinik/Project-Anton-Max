@@ -1,5 +1,5 @@
 *{
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab';
 }
 
 body {
@@ -64,10 +64,6 @@ a {
   max-width: 481px;
   max-height: 800px;
   height: 70%;
-<<<<<<< HEAD
-=======
-  /*background-color: green;*/
->>>>>>> 2e3a1cc5ea38984b0d087c9a7dbd297d48b9ff8a
   display: flex;
   flex-wrap: wrap;
   /*border: 5px solid black;*/
@@ -84,14 +80,10 @@ a {
 #logo{
   height: 90%;
   width: 40%;
-<<<<<<< HEAD
   background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-=======
-  /*background-color: pink;*/
->>>>>>> 2e3a1cc5ea38984b0d087c9a7dbd297d48b9ff8a
 }
 
 #bottomSquare {
@@ -99,35 +91,30 @@ a {
   width: 100%;
   /*background-color: yellow;*/
 }
-
 .lineSquare{
   height: 10%;
   width: 100%;
-<<<<<<< HEAD
-  background-color: hsla(138, 11%, 92%, 0.65);
-=======
-  /*background-color: red;*/
->>>>>>> 2e3a1cc5ea38984b0d087c9a7dbd297d48b9ff8a
+  background-color: hsla(138, 11%, 92%, 0.65); /* pale green */
   margin: 1%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 #loginField{
-<<<<<<< HEAD
   height: 70%;
   width: 95%;
   text-align: center;
   background-color:white;
     color: blue;
+    border: none;
 }
 #passwordField{
   height: 70%;
   width: 95%;
   text-align: center;
   background-color:white;
-    color: blue;
+  color: blue;
+  border: none;
 }
 #emailField{
   height: 70%;
@@ -135,24 +122,7 @@ a {
   text-align: center;
   background-color:white;
     color: blue;
-=======
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
-}
-#passwordField{
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
-}
-#emailField{
-  height: 50%;
-  width: 80%;
-  /*background-color:red;*/
-    color: white;
->>>>>>> 2e3a1cc5ea38984b0d087c9a7dbd297d48b9ff8a
+    border: none;
 }
 
 #underMap{
@@ -165,4 +135,20 @@ a {
 .link{
   font-weight: 600;
   color: white;
+}
+
+.submit{
+  border: none;
+  text-decoration: underline;
+  display: inline-block;
+  width:100%;
+  height:100%;
+  font-size: 20px;
+  color: hsl(241, 63%, 50%);
+  background-color: hsla(241, 0%, 100%, 0.4)
+}
+
+.welcome{
+  font-size: 20px;
+  color: hsl(241, 63%, 50%);
 }
