@@ -1,22 +1,27 @@
 *{
   font-family: 'Roboto Slab' !important;
 }
-
 body {
-    font-size: 20px;
+    font-size: 1em;
 }
+
+input {outline: 0 !important;}
 
 a {
   color: #00B7FF;
 }
 
+.inner{
+  width: 100%;
 
-#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
+}
+
+
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full, #info {
   max-height: 70px;
   max-width: 70px;
   object-fit: contain;
 }
-
 .login-bg{
   width: 100%;
   height: 100%;
@@ -27,37 +32,129 @@ a {
   background-size: cover;
 }
 
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    body {
+        font-size: 0.9em;
+    }
+}
+
+#infoFooter{
+  height: 85%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 #map {
- height: 400px;
+ height: 85%;
  width: 100%;
-}
-
-
-@media only screen and (min-width: 480px) {
-
-  #loginSquare{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
 
 }
 
 
-#coldChamb, #hotChamb, #mill, #crusher, #press, #full {
-  max-height: 70px;
-  max-width: 70px;
-  object-fit: contain;
+#mainMain{
+  height: 100vh;
+}
+
+#navBar{
+  height: 5%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
 }
 
+#navLogo{
+  height: 100%;
+  width: 10%;
+  background-image: url("http://localhost:3000/public/imgs/brewshare-logo.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+
+}
+
+#navHello{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+#navCenter{
+  height: 100%;
+  width: 5%;
+
+
+}
+
+#makeOffer{
+  height: 100%;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#navEditProfile{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+#navLogout{
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+#footer{
+  position: fixed;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+#coldChamb, #hotChamb, #mill, #crusher, #press, #full, #info {
+  /*max-height: 70px;
+  max-width: 70px;*/
+  /*object-fit: contain;*/
+  height: 100%;
+  width: 10%;
+}
 #mainSquare{
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 #loginSquare{
   border: 20px solid rgba(238, 41, 40, 1); /* red color*/
   max-width: 455px;
@@ -66,7 +163,6 @@ a {
   display: flex;
   flex-wrap: wrap;
 }
-
 #logoSquare{
   height: 30%;
   width: 100%;
@@ -74,7 +170,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-
 #logo{
   height: 90%;
   width: 33%;
@@ -83,7 +178,6 @@ a {
   background-size: contain;
   background-repeat: no-repeat;
 }
-
 #bottomSquare {
   height: 9%;
   width: 100%;
@@ -125,20 +219,17 @@ a {
     color: blue;
     border: none;
 }
-
 #underMap{
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
-
 .link{
   font-size: 16px;
   font-weight: 600;
   color: white;
 }
-
 .submit{
   border: none;
   text-decoration: underline;
@@ -265,6 +356,98 @@ a {
   color:white;
 }
 
+.submit2:active{
+  background-color: hsla(241, 0%, 100%, 0.8);
+  color: rgba(238, 41, 40, 1);
+}
+.plusmargin{
+  margin-top: 2%;
+}
+.smallertext{
+  font-size: 14px;
+}
+#mainSquareform{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+}
+#loginSquareform{
+  border: 20px solid hsl(138, 11%, 92%); /* red color*/
+  max-width: 455px;
+  height: 94%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.lineSquaretitle{
+  color: hsl(241, 63%, 50%);
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  background-color: hsl(138, 11%, 92%);
+  margin-left:10%;
+  margin-right:10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lineSquareform{
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  background-color: hsl(138, 11%, 92%); /* pale green */
+  margin-left:10%;
+  margin-right:10%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wordwrapper{
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+.dropdown-content {
+    text-align: center;
+    display: none;
+    position: relative;
+    z-index: 1;
+  }
+.dropdown{
+  width: 100%;
+  display: inline-block;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content li {
+    padding-top: 4%;
+    padding-bottom: 2%;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+.submit2{
+  border: none;
+  text-decoration: underline;
+  display: inline-block;
+  width:100%;
+  height:100%;
+  font-size: 20px;
+  color:white;
+  /*color: hsl(241, 63%, 50%);*/
+  background-color: hsl(241, 63%, 50%);;
+}
+.submit2:hover{
+  background-color: hsla(241, 63%, 50%, 0.6);;
+  color:white;
+}
 .submit2:active{
   background-color: hsla(241, 0%, 100%, 0.8);
   color: rgba(238, 41, 40, 1);

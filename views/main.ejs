@@ -1,25 +1,42 @@
-<% if (user) {%>
-<div class="login-bg">
-<input type="text" id="location"  class="form-control" placeholder="Location">
+
+<% if(user){%>
+<div id="mainMain">
+
+
+<div id="navBar">
+<div id="navLogo"></div>
+<div id="navHello"><div class="inner">Hello,<%= user.username %>!</div></div>
+<div id="navCenter"></div>
+<div id="makeOffer"><div class="inner"><a href="/offer">Make an Offer</a></div></div>
+<div id="navEditProfile"><div class="inner"><a href="/<%= user.id %>">Profile</a></div></div>
+<div id="navLogout"><div class="inner"><a href="/logout">Logout</a></div></div>
+
+</div>
+<div id="infoFooter"></div>
 
 <div id="map"></div>
-<div id="underMap">
+<div id="footer">
+  <%# <input type="text" id="location"  class="form-control" placeholder="Location">%>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/coldChamb-button.png" id="coldChamb" alt ="Low Temperature Fermentation Chamber"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/coldChamb-button.png" id="coldChamb" alt ="Low Temperature Fermentation Chamber"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/hotChamb-button.png" id="hotChamb" alt ="Middle Temperature Fermentation Chamber"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/hotChamb-button.png" id="hotChamb" alt ="Middle Temperature Fermentation Chamber"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/mill-button.png" id="mill" alt ="Mill"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/mill-button.png" id="mill" alt ="Mill"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/crusher-button.png" id="crusher" alt ="Fruit Crusher"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/crusher-button.png" id="crusher" alt ="Fruit Crusher"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/press-button.png" id="press" alt ="Fruit Press"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/press-button.png" id="press" alt ="Fruit Press"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/full-button.png" id="full" alt ="Full brewing cycle"/>
 
-<input data="true" type="image" src="http://localhost:3000/public/imgs/full-button.png" id="full" alt ="Full brewing cycle"/>
+  <input data="true" type="image" src="http://localhost:3000/public/imgs/full-button.png" id="info" alt ="Full brewing cycle"/>
+  </div>
 </div>
 
-<p><a href="/offer">Make an offer</a></p>
-<% }%>
+
+  <% }%>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiVF3y8-6c0sENmx-_am94n_UR9FIPDx0&libraries=places	"> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
 <script type="text/javascript" src="javascripts/main.js"> </script>
+<script type="text/javascript" src="javascripts/info.js"> </script>
