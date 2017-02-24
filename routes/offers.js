@@ -106,6 +106,26 @@ router.post('/gear/:id/edit', ensureLoggedIn(), (req, res, next)=>{
    });
 });
 
+/* GET gear edit*/
+router.get('/gear/:id/edit', (req, res, next)=>{
+   let gearId = req.params.id;
+   Gear.findById(gearId, (err, gear)=>{
+     Offer.findOne({"offer": gearId}, (err, offer)=>{
+       let supplier = offer._supplier;
+      if(err){
+        next(err);
+      }else{
+        if(supplier == req.user.id){
+      res.render('gear/edit', {  gear : gear , offer : offer, layout: false  }  );
+     } else {
+       console.log("No, you cant");
+        res.redirect('/main');
+        }
+      }
+     });
+   });
+});
+
 /* POST updated gear */
 router.post('/gear/:id/update', (req, res, next) => {
   let gearToUpdate = {

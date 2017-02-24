@@ -1,32 +1,63 @@
-<h2>Edit offer</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/reset.css">
+  <style>@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');</style>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+  <meta charset="utf-8">
+</head>
+<body>
+<div class="login-bg">
 <form action="/gear/<%= gear._id %>/update" method="POST">
+    <div id="mainSquareform">
+      <div id="loginSquare">
+<div class="lineSquareRED">
+  <h1>EDIT OFFER</h1>
+</div>
 
-  <label for="name">Offername: </label>
-  <input type="text" id="name" name="name" value="<%= offer.name %>" size="40">
+  <div class="lineSquaretitle">
+    <label for="name">OFFERNAME : </label>
+    <br>
+    <textarea type="text" id="name" name="name" value="<%= offer.name %>"></textarea>
+  </div>
+
+<div class="lineSquaretitle">
+  DESCRIPTION :
   <br>
+  <textarea type="text" id="description" name="description" value="<%= offer.description %>" class="wordwrapper">
+</textarea>
+</div>
 
-  <label for="description">Description: </label>
-  <input type="text" id="description" name="description" value="<%= offer.description %>" size="40">
-  <br>
+<div class="lineSquaretitle dropdown">
+  EQUIPMENT
+  <div class="dropdown-content2 wordwrapper">
+    <ul>
+        <li><input type="checkbox" name="equipment" value="ColdFermChamb">
+        <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label></li>
+        <li><input type="checkbox" name="equipment" value="HotFermChamb">
+        <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label></li>
+        <li><input type="checkbox" name="equipment" value="Mill">
+        <label for="Mill">Mill</label></li>
+        <li><input type="checkbox" name="equipment" value="Crusher">
+        <label for="Crusher">Fruit Crusher</label></li>
+        <li><input type="checkbox" name="equipment" value="Press">
+        <label for="Press">Fruit Press</label></li>
+        <li><input type="checkbox" name="equipment" value="Full">
+        <label for="Full">Full brewing cycle</label></li>
+     </ul>
+  </div>
+</div>
 
-  <input type="checkbox" name="equipment" value="ColdFermChamb">
-  <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label>
-<br>
-  <input type="checkbox" name="equipment" value="HotFermChamb">
-  <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label>
-<br>
-  <input type="checkbox" name="equipment" value="Mill">
-  <label for="Mill">Mill</label>
-<br>
-  <input type="checkbox" name="equipment" value="Crusher">
-  <label for="Crusher">Fruit Crusher</label>
-<br>
-  <input type="checkbox" name="equipment" value="Press">
-  <label for="Press">Fruit Press</label>
-<br>
-  <input type="checkbox" name="equipment" value="Full">
-  <label for="Full">Full brewing cycle</label>
-<br>
-  <button type="submit">Edit offer</button>
+<div class="lineSquaretitle" style="padding: 0px;">
+  <button type="submit" class="submit3">Submit</button>
+</div>
 
+  <div class="lineSquareform" style="padding: 0px;">
+    <form action="/main" method="post" style="height:100%; width:100%">
+      <button type="submit" class="submit3">Cancel</button>
+    </form>
+  </div>
 </form>
+</div>
+</body>
+</html>

@@ -116,6 +116,7 @@ passport.use('login', new LocalStrategy((username, password, next) => {
 app.use('/', index);
 app.use('/', auth);
 app.use('/', offer);
+app.use('/gear', offer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

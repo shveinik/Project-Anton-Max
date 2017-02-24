@@ -11,6 +11,17 @@
       </div>
 
       <div class="lineSquaretitle dropdown">
+        EQUIPMENT
+        <div class="dropdown-content wordwrapper">
+          <ul>
+            <% gear.equipment.forEach(function(e){ %>
+              <li><%= e %></li>
+            <% }); %>
+           </ul>
+        </div>
+      </div>
+      
+      <div class="lineSquaretitle dropdown">
         DESCRIPTION
         <div class="dropdown-content wordwrapper">
           <ul>
@@ -42,17 +53,6 @@
         <div class="dropdown-content wordwrapper">
           <ul>
               <li><%= gear.location %></li>
-           </ul>
-        </div>
-      </div>
-
-      <div class="lineSquaretitle dropdown">
-        EQUIPMENT
-        <div class="dropdown-content wordwrapper">
-          <ul>
-            <% gear.equipment.forEach(function(e){ %>
-              <li><%= e %></li>
-            <% }); %>
            </ul>
         </div>
       </div>
