@@ -1,4 +1,4 @@
-<form action="/offer" method="post">
+<%# <form action="/offer" method="post">
   <div class="form-group">
     <label for="name">Offer name</label>
     <input type="text" name="name" class="form-control" placeholder="Offer name">
@@ -31,11 +31,12 @@
 <label for="location">Location</label>
 <input type="text" id="location" name="location" class="form-control" placeholder="Location" size="90">
 <br><br>
-<div id="map"></div>
+
 <br>
   <button type="submit">Ok</button>
   <a href ="/main">Back</a>
-</form>
+</form>%>
+<div id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfqsN_5UqBfkXH2ZgI9Hb7eLPqVCttmk&libraries=places   "> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
 <script type="text/javascript" src="javascripts/offer.js"> </script>
