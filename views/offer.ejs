@@ -1,37 +1,51 @@
-
-<div id="mainMain">
-<div id="offerTop">
-  <div id="innerOfferTop">
+<div class="login-bg">
 <form action="/offer" method="post">
-    <label for="name">Offer name</label>
-    <input type="text" name="name" placeholder="Offer name">
-<br>
-    <input type="checkbox" name="equipment" value="ColdFermChamb">
-    <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label><br>
-    <input type="checkbox" name="equipment" value="HotFermChamb">
-    <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label><br>
-    <input type="checkbox" name="equipment" value="Mill">
-    <label for="Mill">Mill</label><br>
-    <input type="checkbox" name="equipment" value="Crusher">
-    <label for="Crusher">Fruit Crusher</label><br>
-    <input type="checkbox" name="equipment" value="Press">
-    <label for="Press">Fruit Press</label><br>
-    <input type="checkbox" name="equipment" value="Full">
-    <label for="Full">Full brewing cycle</label><br>
-<br>
+  <div id="mainSquare">
+    <div id="loginSquare">
+  <div class="lineSquaretitle ">
+    <input type="text" name="name" placeholder="Offer name" style="height:90%; width=100%">
+  </div>
+  <div class="lineSquaretitle dropdown">
+    EQUIPMENT
+    <div class="dropdown-content wordwrapper">
+      <ul>
+          <li><input type="checkbox" name="equipment" value="ColdFermChamb">
+          <label for="ColdFermChamb">Low Temperature Fermentation Chamber</label></li>
+          <li><input type="checkbox" name="equipment" value="HotFermChamb">
+          <label for="HotFermChamb">Middle Temperature Fermentation Chamber</label></li>
+          <li><input type="checkbox" name="equipment" value="Mill">
+          <label for="Mill">Mill</label></li>
+          <li><input type="checkbox" name="equipment" value="Crusher">
+          <label for="Crusher">Fruit Crusher</label></li>
+          <li><input type="checkbox" name="equipment" value="Press">
+          <label for="Press">Fruit Press</label></li>
+          <li><input type="checkbox" name="equipment" value="Full">
+          <label for="Full">Full brewing cycle</label></li>
+       </ul>
+    </div>
+  </div>
+  <div class="lineSquaretitle ">
     <label for="description">Description</label>
-    <input type="text" name="description"  placeholder="Description" size="40">
-<br>
+    <textarea type="text" name="description"  placeholder="Description"></textarea>
+  </div>
+<div class="lineSquaretitle ">
 <label for="location">Location</label>
-<input type="text" id="location" name="location"  placeholder="Location" size="90">
-<br><br>
-<br>
-  <button type="submit">Ok</button>
-  <a href ="/main">Back</a>
+<textarea type="text" id="location" name="location"  placeholder="Location"></textarea>
+</div>
+<div class="lineSquareform" style="padding: 0px;">
+  <form action="/main" method="post" style="height:100%; width:100%">
+  <button type="submit" class="submit2" style="padding: 18px;">Ok</button>
+</form>
+</div>
+<div class="lineSquareform" style="padding: 0px;">
+  <form action="/main" method="post" style="height:100%; width:100%">
+  <button type="submit" class="submit2" style="padding: 18px;">Back</button>
 </form>
 </div>
 </div>
-<div id="map" style="height:50vh;"></div>
+</div>
+</form>
+<div id="map"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsfqsN_5UqBfkXH2ZgI9Hb7eLPqVCttmk&libraries=places   "> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
 <script type="text/javascript" src="javascripts/offer.js"> </script>
